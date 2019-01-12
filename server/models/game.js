@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
+const { Schema } = mongoose;
 
-var gameSchema = new mongoose.Schema({
+var gameSchema = new Schema({
 	name: { type: String, required:true },
     description : { type: String },
     release_date: { type: Date, required:true },
@@ -19,4 +20,4 @@ gameSchema.pre('save', function(next){
   next();
 });
 
-module.exports = mongoose.model('Game', gameSchema); 
+mongoose.model('Games', gameSchema);
