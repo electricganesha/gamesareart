@@ -1,3 +1,29 @@
+# SERVER
 node_modules
 package-lock.json
 bin
+data
+
+# BACK-OFFICE
+
+# compiled output
+back-office/dist/
+back-office//tmp/
+
+# dependencies
+back-office/bower_components/
+back-office/node_modules/
+
+# misc
+back-office//.sass-cache
+back-office//connect.lock
+back-office//coverage/
+back-office//libpeerconnection.log
+back-office//npm-debug.log*
+back-office//testem.log
+back-office//yarn-error.log
+
+# ember-try
+back-office//.node_modules.ember-try/
+back-office//bower.json.ember-try
+back-office//package.json.ember-try

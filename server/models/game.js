@@ -20,4 +20,4 @@ gameSchema.pre('save', function(next){
   next();
 });
 
-mongoose.model('Games', gameSchema);
+module.exports = mongoose.model('Games', gameSchema);

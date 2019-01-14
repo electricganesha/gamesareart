@@ -8,6 +8,7 @@ services:
       - "3000:3000"
     links:
       - mongo
+      - back-office
   mongo:
     container_name: mongo_db
     image: mongo
@@ -15,3 +16,11 @@ services:
       - ./data:/data/db
     ports:
       - "27017:27017"
+  back-office:
+    container_name: back-office
+    restart: always
+    build: 
+      context: back-office
+      dockerfile: Dockerfile
+    ports:
+      - 4200:4200

@@ -1,0 +1,10 @@
+{{!-- {{#link-to 'protected'}}Protected Page{{/link-to}} --}}
+<p>SESSION: {{session}}</p>
+{{#if session.isAuthenticated}}
+  <button class="btn btn-default" id="logout" {{action logout}}><span class="fa fa-user"></span> Logout</button>
+{{else}}
+  {{#link-to 'login'}}<p class="btn btn-default"><span class="fa fa-user"></span> Login</p>{{/link-to}}
+  {{#link-to 'signup'}}<p class="btn btn-default"><span class="fa fa-user"></span> Sign-Up</p>{{/link-to}}
+{{/if}}
+
+{{yield}}
