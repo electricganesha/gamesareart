@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'back-office',
+    podModulePrefix: 'back-office/pods',
     environment,
     rootURL: '/',
     locationType: 'auto',

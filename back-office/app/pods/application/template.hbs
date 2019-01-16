@@ -2,7 +2,7 @@
     <div class="jumbotron text-center">
             <h1><span> Games Are Art - Admin Dashboard</span></h1>
             <br>
-            {{session-menu session=session logout=(action "logout")}}
+            {{auth-menu session=session logout=(action "logout")}}
     </div>
     {{#if session.isAuthenticated}}
       <h3 style="text-align:center;">Welcome!</h3>
@@ -10,7 +10,3 @@
 </div>
 
 {{outlet}}
-{{!-- <div class="container">
-  {{partial 'navbar'}}
-  {{outlet}}
-</div> --}}

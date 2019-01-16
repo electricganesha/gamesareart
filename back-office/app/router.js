@@ -7,10 +7,8 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('games');
   this.route('login');
   this.route('signup');
-  this.route('protected');
 });
 
 export default Router;
