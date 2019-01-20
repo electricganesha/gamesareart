@@ -1,37 +1,17 @@
-## Welcome to GitHub Pages
+# Games Are Art
 
-You can use the [editor on GitHub](https://github.com/electricganesha/gamesareart/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Games Are Art is a project directed at creating a platform to showcase and share artistic video-games. It is currently a WIP.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Installing
+Clone or download the code from this repo. Install [Docker](https://www.docker.com/) on your machine. Read the [Docker Documentation](https://docs.docker.com/get-started/) and run the command `docker-compose build` inside the root project folder to build the docker containers.
 
-### Markdown
+## Running
+From the root project folder, run the command `docker-compose up` to start all the projects simultaneously. You can then navigate to [http://localhost:4201](http://localhost:4201) to access the back-office and [http://localhost:3001](http://localhost:3001) to access the API. 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/electricganesha/gamesareart/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Structure
+- gamesareart (root folder)
+    - server-api (api folder) - a node.js application using mongodb
+    - back-office - an ember.js application
 
 ### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Contact [electricganesha](https://github.com/electricganesha) if you have any doubts.

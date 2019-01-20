@@ -1,14 +1,15 @@
 version: "2"
 services:
-  app:
-    container_name: gamesareart
+  server-api:
+    container_name: server-api
     restart: always
-    build: .
+    build:
+      context: server-api
+      dockerfile: Dockerfile
     ports:
       - "3001:3001"
     links:
       - mongo
-      - back-office
   mongo:
     container_name: mongo_db
     image: mongo
@@ -24,3 +25,5 @@ services:
       dockerfile: Dockerfile
     ports:
       - 4201:4201
+    links:
+      - server-api
