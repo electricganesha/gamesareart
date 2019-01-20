@@ -2,8 +2,40 @@
 
 body {
     padding-top: 20px;
+    font-family: 'Playfair Display', serif !important;
 }
+
+h1 {
+    font-family: 'Playfair Display', serif !important;
+}
+
+hr{ 
+    height: 1px;
+    color: red !important;
+    background-color: red  !important;
+    border: none;
+  }
 
 .login {
     width:33% !important;
+}
+
+.flatpickr-input {
+	cursor: pointer;
+    z-index: 1;
+    text-align:center;
+}
+
+.emberTagInput-tag {
+    background: cornflowerblue;
+    font-size:20px;
+    border-radius: 20px;
+    margin-right: 5px;
+    color: white;
+    font-family: 'Playfair Display', serif !important;
+}
+.emberTagInput-input {
+    font-size:20px;
+    text-align:center;
+    font-family: 'Playfair Display', serif !important;
 }

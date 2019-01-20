@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1><span> New Game</span></h1>
+        <br>
+        {{new-game-form
+            model=model
+            submitNewGame=(route-action "submitNewGame")
+        }}
+</div>
+</div>
+
+{{outlet}}

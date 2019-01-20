@@ -5,7 +5,7 @@ services:
     restart: always
     build: .
     ports:
-      - "3000:3000"
+      - "3001:3001"
     links:
       - mongo
       - back-office
@@ -23,4 +23,4 @@ services:
       context: back-office
       dockerfile: Dockerfile
     ports:
-      - 4200:4200
+      - 4201:4201

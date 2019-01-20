@@ -4,5 +4,5 @@ WORKDIR /gamesareart
 COPY package.json /gamesareart
 RUN npm install
 COPY . /gamesareart
-EXPOSE 3000
+EXPOSE 3001
 CMD ["npm", "start"]

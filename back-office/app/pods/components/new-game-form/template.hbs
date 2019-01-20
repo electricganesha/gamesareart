@@ -1,0 +1,104 @@
+<form>
+    <div class="form-group">
+        <label for="name">Name</label>
+        {{input 
+            type="text" 
+            value=model.name
+            class="form-control" 
+            id="name" 
+            aria-describedby="name" 
+            placeholder="Name of the game"
+            required=true
+        }}
+    </div>
+    <hr>
+    <div class="form-group">
+        <label for="description">Description</label>
+        {{textarea type="text" value=model.description class="form-control" id="description" aria-describedby="description" placeholder="A short description of the game"}}
+    </div>
+    <hr>
+    <div class="form-group">
+        <label for="description">Release Date</label>
+        <br>
+        {{ember-flatpickr
+            allowInput=true
+            defaultDate=defaultDate
+            date=dateValue
+            onChange=(action 'chooseDate')
+            dateFormat="d-m-Y"
+            placeholder='Choose a Date'
+        }}
+    </div>
+    <hr>
+    <div class="form-group">
+        <label for="description">Authors</label>
+        <button class="btn btn-default" {{action 'addAuthor'}}><span class="fa fa-plus"></span> Add Author</button>
+
+        <ul id="result">
+
+            {{#each authors as |author index|}}
+            {{input 
+            type="text" 
+            value=author.name
+            class="form-control" 
+            aria-describedby="name" 
+            placeholder="Name of the author"
+            key-press=(action 'changeAuthor' author index)
+            }}
+            {{/each}}
+
+        </ul>
+
+    </div>
+    <hr>    
+    <div class="form-group">
+        <label for="publisher">Publisher</label>
+        {{input 
+        type="text" 
+        value=model.publisher
+        class="form-control" 
+        id="publisher" 
+        aria-describedby="publisher" 
+        placeholder="Publisher of the game"
+        }}
+    </div>
+    <hr>
+    <div class="form-group">
+        <label for="linkToVideo">Link to Video</label>
+        {{input 
+        type="text" 
+        value=model.video_link
+        class="form-control" 
+        id="linkToVideo" 
+        aria-describedby="linkToVideo" 
+        placeholder="Link to video - http://"
+        }}
+    </div>
+    <hr>
+    <div class="form-group">
+        <label for="linkToBuy">Link to Buy</label>
+        {{input 
+        type="text" 
+        value=model.buy_link 
+        class="form-control" 
+        id="linkToBuy" 
+        aria-describedby="linkToBuy" 
+        placeholder="Link to buy - http://"}}
+    </div>
+    <hr>
+    <div class="form-group">
+        <label for="tags">Tags</label>
+        {{#tag-input
+            tags=tags
+            placeholder="Type tags..."
+            addTag=(action 'addTag')
+            removeTagAtIndex=(action 'removeTagAtIndex')
+            as |tag|
+        }}
+        {{tag}}
+        {{/tag-input}}
+    </div>
+    <hr>
+    <button type="submit" class="btn btn-primary" disabled={{isSubmitButtonDisabled}} {{action (route-action 'submitNewGame' model)}}>Submit</button>
+</form>
+{{yield}}

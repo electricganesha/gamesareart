@@ -10,6 +10,7 @@ module.exports = function (app) {
 
 	// API routes
 	require('./api/games')(apiRouter);
+	require('./api/tags')(apiRouter);
 
 	//POST Register New User (optional, everyone has access)
 	router.post('/signup', function (req, res, next) {

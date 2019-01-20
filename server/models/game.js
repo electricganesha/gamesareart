@@ -1,12 +1,16 @@
 var mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+var authorSchema = new Schema({
+  name:  { type: String }
+});
+
 var gameSchema = new Schema({
 	name: { type: String, required:true },
     description : { type: String },
     release_date: { type: Date, required:true },
     posted_at : { type: Date, required:true },
-    authors: [{type:String}],
+    authors: [authorSchema],
     publisher: {type : String},
     video_link: {type: String},
     buy_link: { type : String},
@@ -20,4 +24,4 @@ gameSchema.pre('save', function(next){
   next();
 });
 
-module.exports = mongoose.model('Games', gameSchema);
+module.exports = mongoose.model('Game', gameSchema);

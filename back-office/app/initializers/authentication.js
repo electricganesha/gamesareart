@@ -12,7 +12,7 @@ var CustomAuthenticator = Base.extend({
     return new Promise(function(resolve, reject) {
       if (!isEmpty(data.token)) {
         $.ajax({
-          url: 'http://localhost:3000/validate',
+          url: ENV.baseAPIRoute+'validate',
           type: 'POST',
           data: JSON.stringify({
             token: data.token
@@ -33,7 +33,7 @@ var CustomAuthenticator = Base.extend({
   authenticate: function(creds) {
     return new Promise(function(resolve, reject) {
       $.ajax({
-        url: 'http://localhost:3000/login',
+        url: ENV.baseAPIRoute+'login',
         type: 'POST',
         data: JSON.stringify({
           email: creds.email,
@@ -45,7 +45,6 @@ var CustomAuthenticator = Base.extend({
         run(function() {
           resolve({ token: response.token });
         });
-
       }, function(xhr, status, error) {
         run(function() {
           reject(error);
@@ -57,7 +56,7 @@ var CustomAuthenticator = Base.extend({
   invalidate: function(/* data */) {
     return new Promise(function(resolve, reject) {
       $.ajax({
-        url: 'http://localhost:3000/logout',
+        url: ENV.baseAPIRoute+'logout',
         type: 'GET'
       }).then(function() {
         run(function() {

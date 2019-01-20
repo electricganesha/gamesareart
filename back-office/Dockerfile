@@ -6,6 +6,6 @@ COPY bower.json /back-office
 RUN npm install -g bower gulp karma-cli \
     && npm install \
     && bower install --allow-root
-EXPOSE 4200
+EXPOSE 4201
 COPY ./ /back-office/
 CMD ["ember", "server"]
