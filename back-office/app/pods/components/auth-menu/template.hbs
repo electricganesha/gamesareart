@@ -4,6 +4,7 @@
 {{#if session.isAuthenticated}}
   {{#link-to 'allgames'}}<button class="btn btn-default"><span class="fa fa-list"></span> All Games</button>{{/link-to}}
   {{#link-to 'newgame'}}<button class="btn btn-default"><span class="fa fa-plus"></span> New Game</button>{{/link-to}}
+  {{#link-to 'alltags'}}<button class="btn btn-default"><span class="fa fa-tag"></span> All Tags</button>{{/link-to}}
     <button class="btn btn-default" id="logout" {{action logout}}><span class="fa fa-user"></span> Logout</button>
 
 {{else}}

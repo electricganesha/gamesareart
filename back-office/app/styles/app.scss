@@ -9,7 +9,7 @@ h1 {
     font-family: 'Playfair Display', serif !important;
 }
 
-hr{ 
+hr{
     height: 1px;
     color: red !important;
     background-color: red  !important;
@@ -38,4 +38,35 @@ hr{
     font-size:20px;
     text-align:center;
     font-family: 'Playfair Display', serif !important;
+}
+
+.emberTagInput-remove {
+    color:darkblue;
+}
+
+.games-table {
+  width:100%;
+}
+
+.games-table tr {
+  width:100%;
+}
+
+.games-table th {
+  font-size:18px;
+  text-align:center;
+  border-bottom:1px solid grey;
+}
+
+.games-table td {
+  font-size:14px;
+  width:auto;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  overflow: hidden;
+  max-width:100px;
+  text-align:center;
+  border-bottom:1px solid lightgrey;
+  padding-bottom:10px;
+  padding-top:10px;
 }

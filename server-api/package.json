@@ -16,6 +16,7 @@
     "express-jwt": "^5.3.1",
     "express-session": "^1.15.6",
     "http-errors": "~1.6.2",
+    "jsonapi-serializer": "^3.6.4",
     "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.4.3",
     "morgan": "~1.9.0",

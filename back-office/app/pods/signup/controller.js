@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import {inject as service } from '@ember/service';
 import $ from 'jquery';
+import ENV from '../../config/environment';
 import {run} from '@ember/runloop';
 
 export default Controller.extend({
@@ -9,7 +10,7 @@ export default Controller.extend({
   actions: {
     signup() {
         $.ajax({
-          url: 'http://localhost:3000/signup',
+          url: ENV.baseAPIRoute+'signup',
           type: 'POST',
           data: JSON.stringify({
             email: $('#email').val(),

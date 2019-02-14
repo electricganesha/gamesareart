@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('signup');
   this.route('allgames');
   this.route('newgame');
+  this.route('alltags');
 });
 
 export default Router;

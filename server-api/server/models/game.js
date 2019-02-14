@@ -1,20 +1,16 @@
 var mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-var authorSchema = new Schema({
-  name:  { type: String }
-});
-
 var gameSchema = new Schema({
-	name: { type: String, required:true },
+	  name: { type: String, required:true, index:true, unique:true },
     description : { type: String },
     release_date: { type: Date, required:true },
     posted_at : { type: Date, required:true },
-    authors: [authorSchema],
+    authors: [{ type: Schema.Types.ObjectId, ref: 'Author' }],
     publisher: {type : String},
     video_link: {type: String},
     buy_link: { type : String},
-    tags: [{type: String}],
+    tags: [{ type: Schema.Types.ObjectId, ref: 'Tag' }],
     likes: {type : Number}
 });
 
