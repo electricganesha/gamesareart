@@ -8,7 +8,7 @@ import {
 
 export default Route.extend(AuthenticatedRouteMixin, {
   model() {
-
+    return this.store.createRecord('game');
   },
   actions: {
     submitNewGame: function (form) {
@@ -24,7 +24,6 @@ export default Route.extend(AuthenticatedRouteMixin, {
           run(function () {
             this.store.push(response);
             this.transitionTo('all-games');
-            this.store.createRecord('game');
             //resolve({ token: response.token });
           });
         }, function (xhr, status, error) {

@@ -1,7 +1,11 @@
 var Tag = require('../models/tag');
+var JSONAPISerializer = require('jsonapi-serializer').Serializer;
 
 // Tags API
 module.exports = function(apiRouter){
+	var TagSerializer = new JSONAPISerializer('tags', {
+		attributes: ['tag']
+	});
 
 	// get all tags
 	apiRouter.get('/tags', function(req, res){
@@ -15,7 +19,7 @@ module.exports = function(apiRouter){
 			}
 			else
 			{
-				res.json(tags);
+				res.json(TagSerializer.serialize(tags));
 			}
 
 		});

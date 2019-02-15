@@ -59,7 +59,7 @@ hr{
 }
 
 .games-table td {
-  font-size:14px;
+  font-size:12px;
   width:auto;
   white-space: nowrap;
   text-overflow:ellipsis;
@@ -69,4 +69,12 @@ hr{
   border-bottom:1px solid lightgrey;
   padding-bottom:10px;
   padding-top:10px;
+}
+
+.games-table .big-column {
+  width:90%;
+}
+
+.games-table .small-column {
+  width:4%;
 }

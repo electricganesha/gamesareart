@@ -1,12 +1,12 @@
 <form>
     <div class="form-group">
         <label for="name">Name</label>
-        {{input 
-            type="text" 
+        {{input
+            type="text"
             value=model.name
-            class="form-control" 
-            id="name" 
-            aria-describedby="name" 
+            class="form-control"
+            id="name"
+            aria-describedby="name"
             placeholder="Name of the game"
             required=true
         }}
@@ -37,52 +37,52 @@
         <ul id="result">
 
             {{#each authors as |author index|}}
-            {{input 
-            type="text" 
-            value=author.name
-            class="form-control" 
-            aria-describedby="name" 
+            {{input
+            type="text"
+            value=anAuthor
+            class="form-control"
+            aria-describedby="name"
             placeholder="Name of the author"
-            key-press=(action 'changeAuthor' author index)
+            focusOut=(action 'changeAuthor' anAuthor index)
             }}
             {{/each}}
 
         </ul>
 
     </div>
-    <hr>    
+    <hr>
     <div class="form-group">
         <label for="publisher">Publisher</label>
-        {{input 
-        type="text" 
+        {{input
+        type="text"
         value=model.publisher
-        class="form-control" 
-        id="publisher" 
-        aria-describedby="publisher" 
+        class="form-control"
+        id="publisher"
+        aria-describedby="publisher"
         placeholder="Publisher of the game"
         }}
     </div>
     <hr>
     <div class="form-group">
         <label for="linkToVideo">Link to Video</label>
-        {{input 
-        type="text" 
+        {{input
+        type="text"
         value=model.video_link
-        class="form-control" 
-        id="linkToVideo" 
-        aria-describedby="linkToVideo" 
+        class="form-control"
+        id="linkToVideo"
+        aria-describedby="linkToVideo"
         placeholder="Link to video - http://"
         }}
     </div>
     <hr>
     <div class="form-group">
         <label for="linkToBuy">Link to Buy</label>
-        {{input 
-        type="text" 
-        value=model.buy_link 
-        class="form-control" 
-        id="linkToBuy" 
-        aria-describedby="linkToBuy" 
+        {{input
+        type="text"
+        value=model.buy_link
+        class="form-control"
+        id="linkToBuy"
+        aria-describedby="linkToBuy"
         placeholder="Link to buy - http://"}}
     </div>
     <hr>

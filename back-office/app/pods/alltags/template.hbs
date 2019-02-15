@@ -1,1 +1,24 @@
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1><span> All Tags</span></h1>
+        <br>
+        <table class="games-table">
+          <tr>
+            <th>Tag</th>
+            <th></th>
+            <th></th>
+          </tr>
+        {{#each this.model as |tag|}}
+          {{#unless tag.isNew}}
+            <tr>
+              <td class="big-column">{{tag.tag}}</td>
+              <td><button class="btn btn-default"><span class="fa fa-edit"></span></button></td>
+              <td><button class="btn btn-default"><span class="fa fa-trash"></span></button></td>
+            </tr>
+          {{/unless}}
+        {{/each}}
+      </table>
+    </div>
+</div>
+
 {{outlet}}

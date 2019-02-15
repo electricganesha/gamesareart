@@ -8,22 +8,22 @@
             <th>Description</th>
             <th>Release Date</th>
             <th>Posted At</th>
-            <th>Authors</th>
             <th>Publisher</th>
             <th></th>
             <th></th>
           </tr>
         {{#each this.model as |game|}}
-          <tr>
-            <td>{{game.name}}</td>
-            <td>{{game.description}}</td>
-            <td>{{game.release_date}}</td>
-            <td>{{dateFormat game.posted_at}}</td>
-            <td>{{game.authors}}</td>
-            <td>{{game.publisher}}</td>
-            <td><button class="btn btn-default"><span class="fa fa-edit"></span></button></td>
-            <td><button class="btn btn-default"><span class="fa fa-trash"></span></button></td>
-          </tr>
+          {{#unless game.isNew}}
+            <tr>
+              <td>{{game.name}}</td>
+              <td>{{game.description}}</td>
+              <td>{{dateFormat game.release_date}}</td>
+              <td>{{dateFormat game.posted_at}}</td>
+              <td>{{game.publisher}}</td>
+              <td class="small-column"><button class="btn btn-default"><span class="fa fa-edit"></span></button></td>
+              <td class="small-column"><button class="btn btn-default"><span class="fa fa-trash"></span></button></td>
+            </tr>
+          {{/unless}}
         {{/each}}
       </table>
     </div>

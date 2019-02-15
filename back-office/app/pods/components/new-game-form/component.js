@@ -28,13 +28,13 @@ export default Component.extend({
     const hasVideoLink = this.get('model.video_link') === (undefined || '');
     const hasBuyLink = this.get('model.buy_link') === (undefined || '');
 
-    return (hasName || 
-      hasDescription || 
-      hasDate || 
-      hasPostedAt || 
-      hasAuthors || 
-      hasPublisher || 
-      hasVideoLink || 
+    return (hasName ||
+      hasDescription ||
+      hasDate ||
+      hasPostedAt ||
+      hasAuthors ||
+      hasPublisher ||
+      hasVideoLink ||
       hasBuyLink)
   }),
   actions: {
@@ -43,9 +43,7 @@ export default Component.extend({
       this.set('model.release_date', new Date(date[0]));
     },
     addAuthor: function () {
-      this.authors.pushObject({
-        name: ''
-      });
+      this.authors.pushObject('');
       this.set('model.authors', this.authors);
     },
     changeAuthor: function (author, index) {
