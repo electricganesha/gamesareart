@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var dbURI = 'mongodb://localhost/gamesareart';
+var dbURI = 'mongodb://mongo:27017/gamesareart';
 
 var path = require('path'),
 	rootPath = path.normalize(__dirname + '/../../');

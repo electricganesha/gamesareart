@@ -6,7 +6,11 @@ var JSONAPISerializer = require('jsonapi-serializer').Serializer;
 // Games API
 module.exports = function(apiRouter){
 	var GameSerializer = new JSONAPISerializer('games', {
-		attributes: ['name', 'description','release_data','posted_at','authors','publisher','video_link','buy_link','tags','likes']
+		attributes: ['name', 'description','release_date','posted_at','authors','publisher','video_link','buy_link','tags','likes']
+	});
+
+	var GenericSerializer = new JSONAPISerializer('generic', {
+		attributes: ['message']
 	});
 
 	// get all games
@@ -27,11 +31,10 @@ module.exports = function(apiRouter){
     });
     
     // get a single game
-	apiRouter.get('/game/:id', function(req, res){
-		Game.findById(req.params.id, function(err, game){
+	apiRouter.get('/games/:id', function(req, res){
+		Game.findById(req.params.id).populate({ path: 'authors', model: 'Author' }).populate({ path: 'tags', model: 'Tag' }).exec(function(err, game){
 			if (err) res.send(err);
-			
-			res.send({data:game});
+				res.send(GameSerializer.serialize(game));
 		});
 	});
 
@@ -55,7 +58,6 @@ module.exports = function(apiRouter){
 
 					game.save(function(err, game){
 						if(err) res.send(err);
-						console.log(game);
 						res.json(game);
 					});
 					});
@@ -71,7 +73,7 @@ module.exports = function(apiRouter){
 
 			if(err) res.send(err);
 
-			game.name = req.body.name;
+						game.name = req.body.name;
             game.description = req.body.description;
             game.release_date = req.body.release_date;
             game.posted_at = req.body.posted_at;
@@ -85,7 +87,7 @@ module.exports = function(apiRouter){
 			game.save(function(err){
 				if(err) res.send(err);
 
-				res.json({ message: 'Game updated!' });
+				res.send(GameSerializer.serialize(game));
 			})
 		});
 	});
@@ -96,8 +98,8 @@ module.exports = function(apiRouter){
 			_id: req.params.id
 		}, function(err, game){
 			if(err) res.send(err);
-
-			res.json({ message: 'Game deleted!' });
+			const response = { message: game.name+' deleted successfully!' }
+			res.json(GenericSerializer.serialize(response));
 		})
 	});
 };
