@@ -1,4 +1,5 @@
 <div class="container">
+   {{flash.message}}
     <div class="jumbotron text-center">
         <h1><span> All Games</span></h1>
         <br>
@@ -20,8 +21,8 @@
               <td>{{dateFormat game.release_date}}</td>
               <td>{{dateFormat game.posted_at}}</td>
               <td>{{game.publisher}}</td>
-              <td class="small-column"><button class="btn btn-default"><span class="fa fa-edit"></span></button></td>
-              <td class="small-column"><button class="btn btn-default"><span class="fa fa-trash"></span></button></td>
+              <td class="small-column">{{#link-to 'editgame' game.id}}<button class="btn btn-default"><span class="fa fa-edit"></span></button>{{/link-to}}</td>
+              <td class="small-column"><button class="btn btn-default" {{action 'deleteGame' game}}><span class="fa fa-trash"></span></button></td>
             </tr>
           {{/unless}}
         {{/each}}

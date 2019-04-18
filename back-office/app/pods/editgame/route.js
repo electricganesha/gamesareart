@@ -5,27 +5,29 @@ import ENV from '../../config/environment';
 import {
   run
 } from '@ember/runloop';
+import {
+  computed
+} from '@ember/object';
 
 export default Route.extend(AuthenticatedRouteMixin, {
-  model() {
-    return this.store.createRecord('game');
+  model(params) {
+    return this.store.findRecord('game', params.game_id)
   },
-  didSubmit: function(response){
-    this.store.push(response);
-    this.transitionTo('allgames');
-  },
+  gameId: computed.alias('model.id'),
   actions: {
-    submitNewGame: function (form) {
+    editGame: function (form) {
+      const gameId = this.get('model.id');
       return new Promise(function (resolve, reject) {
         $.ajax({
-          url: ENV.baseAPIRoute + 'api/games',
-          type: 'POST',
+          url: ENV.baseAPIRoute + 'api/games/'+gameId,
+          type: 'PUT',
           data: JSON.stringify(form),
           contentType: 'application/json',
           crossOrigin: false
         }).then(function (response) {
           run(function () {
-            this.didSubmit(response);
+            this.store.push(response);
+            this.transitionTo('all-games');
           });
         }, function (xhr, status, error) {
           run(function () {

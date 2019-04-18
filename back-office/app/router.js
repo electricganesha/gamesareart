@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('allgames');
   this.route('newgame');
   this.route('alltags');
+  this.route('editgame', { path: 'editgame/:game_id' });
 });
 
 export default Router;
