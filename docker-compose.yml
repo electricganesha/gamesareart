@@ -8,10 +8,14 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3001:3001"
+    environment:
+      WAIT_HOSTS: mongodb:27017
+    depends_on: 
+      - mongodb
     links:
-      - mongo
-  mongo:
-    container_name: mongo_db
+      - mongodb
+  mongodb:
+    container_name: mongodb
     image: mongo
     volumes:
       - ./data:/data/db
@@ -25,5 +29,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - 4201:4201
+    depends_on:
+      - server-api
     links:
       - server-api
