@@ -1,0 +1,89 @@
+.videocontrols {
+    width: 100%;
+    height:100%;
+}
+
+.seek {
+    margin-top: 30px;
+    width: 100%;
+    margin-left: -0.5px;
+}
+
+.previous {
+    position:absolute;
+    cursor: pointer;
+    display: inline-block;
+    border: 1.5px solid black;
+    height: 20px;
+    -ms-transform:rotate(-45deg);
+    /* IE 9 */
+    -webkit-transform: rotate(-45deg);
+    /* Safari */
+    transform: rotate(-45deg);
+    z-index: 99;
+    margin-top: 34px;
+    margin-left: 7px;
+}
+
+.next {
+    position:absolute;
+    cursor: pointer;
+    display: inline-block;
+    border: 1.5px solid black;
+    height: 20px;
+    -ms-transform: rotate(-45deg);
+    /* IE 9 */
+    -webkit-transform: rotate(-45deg) ;
+    /* Safari */
+    transform: rotate(-45deg);
+    margin-top: 16px;
+    margin-left: -13px;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    z-index: -1;
+}
+
+input[type=range]::-moz-focus-outer {
+    border: 0;
+}
+
+input::-webkit-slider-runnable-track {
+    background: black;
+    position: relative;
+    z-index: -1;
+}
+
+input::-moz-range-track {
+    height: 4px;
+    -webkit-appearance: none;
+    background: black;
+    position: relative;
+    z-index: 100;
+}
+
+input::-ms-track {
+    background: black;
+}
+
+input::-webkit-slider-runnable-thumb {
+    background: black;
+}
+
+input::-moz-range-thumb {
+    -webkit-appearance: none;
+    margin-top: 20px !important;
+    position: relative;
+    z-index: -1;
+    height: 30px;
+    border: 0px;
+    width: 10px;
+    border-radius: 0px;
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 56%, rgba(255, 0, 0, 1) 56%, rgba(255, 0, 0, 1) 100%);
+    cursor: pointer;
+}
+
+input::-ms-thumb {
+    background: black;
+}

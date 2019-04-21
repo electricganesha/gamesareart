@@ -1,0 +1,64 @@
+.leftMenu {
+    position:absolute;
+    left: 8vw;
+    top: 100px;
+}
+
+.rightMenu {
+    position:absolute;
+    right: 4vw;
+    font-size: 25px;
+    bottom: 100px;
+    font-family: 'Quando', serif;
+}
+
+.rightMenu a {
+    color: black;
+    text-decoration: none;
+}
+
+.galleryIcon {
+  cursor: pointer;
+  display: block;
+  text-indent: -9999px;
+  width: 24px;
+  height: 24px;
+  background: url(/icons/four-squares-list.png);
+  background-size: 24px 24px;
+}
+
+.galleryIcon:hover {
+    background: url(/icons/four-squares-list.png);
+    background-size: 24px 24px;
+}
+
+.galleryIconActive {
+    cursor: pointer;
+    display: block;
+    text-indent: -9999px;
+    width: 24px;
+    height: 24px;
+    background: url(/icons/four-squares-list-hover.png);
+    background-size: 24px 24px;
+}
+
+.infoIcon {
+    margin-top:20px;
+    cursor: pointer;
+    display: block;
+    text-indent: -9999px;
+    width: 24px;
+    height: 24px;
+    background: url(/icons/sort-button-with-three-lines.png);
+    background-size: 24px 24px;
+  }
+  
+  .infoIcon:hover {
+      background: url(/icons/sort-button-with-three-lines-hover.png);
+      background-size: 24px 24px;
+  }
+
+  .mainWindow {
+      display:flex;
+      margin:auto;
+  }

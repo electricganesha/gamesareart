@@ -33,3 +33,15 @@ services:
       - server-api
     links:
       - server-api
+  gamesareart:
+      container_name: gamesareart
+      restart: always
+      build: 
+        context: front-end
+        dockerfile: Dockerfile
+      ports:
+        - 8080:8080
+      depends_on:
+        - server-api
+      links:
+        - server-api

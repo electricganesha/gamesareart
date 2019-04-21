@@ -27,3 +27,7 @@ back-office//yarn-error.log
 back-office//.node_modules.ember-try/
 back-office//bower.json.ember-try
 back-office//package.json.ember-try
+
+front-end/\.env
+front-end/app/assets
+front-end/dist
