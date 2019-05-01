@@ -1,14 +1,14 @@
 .leftMenu {
     position:absolute;
     left: 8vw;
-    top: 100px;
+    top: 50px;
 }
 
 .rightMenu {
     position:absolute;
     right: 4vw;
     font-size: 25px;
-    bottom: 100px;
+    bottom: 50px;
     font-family: 'Quando', serif;
 }
 
@@ -17,9 +17,13 @@
     text-decoration: none;
 }
 
+.rightMenu p:hover {
+    color: #D34E4E;
+}
+
 .galleryIcon {
   cursor: pointer;
-  display: block;
+  display: inline-block;
   text-indent: -9999px;
   width: 24px;
   height: 24px;
@@ -28,19 +32,19 @@
 }
 
 .galleryIcon:hover {
-    background: url(/icons/four-squares-list.png);
+    background: url(/icons/four-squares-list-hover.png);
     background-size: 24px 24px;
 }
 
-.galleryIconActive {
+.galleryIcon--active {
     cursor: pointer;
-    display: block;
+    display: inline-block;
     text-indent: -9999px;
     width: 24px;
     height: 24px;
     background: url(/icons/four-squares-list-hover.png);
     background-size: 24px 24px;
-}
+  }
 
 .infoIcon {
     margin-top:20px;
@@ -57,6 +61,46 @@
       background: url(/icons/sort-button-with-three-lines-hover.png);
       background-size: 24px 24px;
   }
+
+  .infoIcon--active {
+    margin-top:20px;
+    cursor: pointer;
+    display: block;
+    text-indent: -9999px;
+    width: 24px;
+    height: 24px;
+    background: url(/icons/sort-button-with-three-lines-hover.png);
+    background-size: 24px 24px;
+}
+
+.questionMarkIcon {
+    margin-top:20px;
+    margin-left:20px;
+    cursor: pointer;
+    display: inline-block;
+    text-indent: -9999px;
+    width: 24px;
+    height: 24px;
+    background: url(/icons/question-mark.png);
+    background-size: 24px 24px;
+  }
+  
+  .questionMarkIcon:hover {
+      background: url(/icons/question-mark-hover.png);
+      background-size: 24px 24px;
+  }
+
+  .questionMarkIcon--active {
+    margin-top:20px;
+    margin-left:20px;
+    cursor: pointer;
+    display: inline-block;
+    text-indent: -9999px;
+    width: 24px;
+    height: 24px;
+    background: url(/icons/question-mark-hover.png);
+    background-size: 24px 24px;
+}
 
   .mainWindow {
       display:flex;

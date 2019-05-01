@@ -12,7 +12,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
   },
   didSubmit: function(response){
     this.store.push(response);
-    this.transitionTo('allgames');
+    this.transitionToRoute('allgames');
   },
   actions: {
     submitNewGame: function (form) {

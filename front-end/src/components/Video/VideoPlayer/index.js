@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactPlayer from "react-player";
 import VideoControls from "../VideoControls";
+import PropTypes from 'prop-types';
 import styles from "./styles.scss";
 
 class VideoPlayer extends Component {
@@ -31,16 +32,24 @@ class VideoPlayer extends Component {
     };
   }
 
+  static propTypes = {
+    setInfo: PropTypes.func.isRequired
+  };
+
   ref = player => {
     this.player = player;
     this.setState({ref: player});
   };
 
   componentDidMount() {
-    fetch("http://localhost:3001/api/games/"+this.props.gameId)
+    if(this.props.gameId) {
+      fetch("http://localhost:3001/api/games/"+this.props.gameId)
       .then(response => response.json())
       .then(video => {
-          console.log(video);
+        this.props.setInfo(
+        video.data.attributes["name"].toString(), 
+        video.data.attributes["description"].toString()
+        );
         this.setState({
             currentGameId: this.props.gameId,
             currentVideo: video.data.attributes[
@@ -48,6 +57,7 @@ class VideoPlayer extends Component {
           ].toString()
         });
       });
+    }
   }
 
   _pauseVideo() {
@@ -90,7 +100,10 @@ class VideoPlayer extends Component {
     fetch("http://localhost:3001/api/games/prev/"+this.state.currentGameId)
       .then(response => response.json())
       .then(video => {
-        console.log(video);
+        this.props.setInfo(
+          video.data.attributes["name"].toString(), 
+          video.data.attributes["description"].toString()
+        );
         if(video.data) {
         this.setState({
             currentGameId: video.data.id,
@@ -128,6 +141,10 @@ class VideoPlayer extends Component {
     fetch("http://localhost:3001/api/games/next/"+this.state.currentGameId)
       .then(response => response.json())
       .then(video => {
+        this.props.setInfo(
+          video.data.attributes["name"].toString(), 
+          video.data.attributes["description"].toString()
+        );
         if(video.data){
         this.setState({
             currentGameId: video.data.id,
@@ -160,7 +177,7 @@ class VideoPlayer extends Component {
 
   render() {
     return (
-      <div>
+      <div onClick={this._pauseVideo}>
         <ReactPlayer
           url={this.state.currentVideo}
           className="video"

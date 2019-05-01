@@ -14,19 +14,27 @@ class Menu extends Component {
     super(props);
 
     this.state = {};
+
+    this.changedRoute = this.changedRoute.bind(this);
+  }
+
+  changedRoute(pathname) {
+    this.props.changedRoute(pathname);
   }
 
   render() {
-    const pathname = window.location.pathname;
-    const showMenu = pathname === "/game" || pathname === "/home";
+    const infoIconActive = this.props.isInfoOn ? 'infoIcon--active' : 'infoIcon';
+    const isGalleryPage = this.props.isGalleryPage ? 'galleryIcon--active' : 'galleryIcon';
+    const isAboutPage = this.props.isAboutPage ? 'questionMarkIcon--active' : 'questionMarkIcon';
     return (
       <div>
         <div className="leftMenu">
-          <Link to="/gallery" className="galleryIcon" />
-          {showMenu && <Link to="/info" className="infoIcon" />}
+          <Link to="/gallery"><div onClick={this.changedRoute.bind(this, '/gallery')} className={isGalleryPage}></div></Link>
+          <Link to="/about"><div onClick={this.changedRoute.bind(this, '/about')} className={isAboutPage}></div></Link>
+          {this.props.showMenu && <div onClick={this.props.onClickInfoIcon} className={infoIconActive} />}
         </div>
         <div className="rightMenu">
-          <Link to='/'><p>Games are art</p></Link>
+          <Link to='/'><p onClick={this.changedRoute.bind(this, '/')}>Games are art</p></Link>
         </div>
       </div>
     );

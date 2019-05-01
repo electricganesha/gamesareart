@@ -4,12 +4,10 @@ import styles from "./styles.scss";
 const dotenv = require('dotenv');
 
 class Home extends Component {
-  
-  
   render() {
     return (
       <div>
-        <VideoWrapper gameId={process.env.DEFAULT_GAME_ID} />
+        <VideoWrapper gameId={process.env.DEFAULT_GAME_ID} setInfo={this.props.setInfo} />
       </div>
     );
   }

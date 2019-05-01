@@ -21,6 +21,10 @@ class Gallery extends Component {
       });
   }
 
+  changedRoute(pathname) {
+    this.props.changedRoute(pathname);
+  }
+
   render() {
 
     const gallery = [];
@@ -32,7 +36,7 @@ class Gallery extends Component {
             const videoId = video.attributes['video-link'].split("=")[1];
             const linkToGame = "/game/"+video['id'];
             const imageLink = "https://img.youtube.com/vi/"+videoId+"/0.jpg";
-            gallery.push(<div className="galleryItem" key={gallery.length}><Link to={linkToGame}><img alt={video.attributes['name']} src={imageLink}></img></Link></div>);
+            gallery.push(<div className="galleryItem" key={gallery.length}><Link to={linkToGame}><img onClick={this.changedRoute.bind(this, linkToGame)} alt={video.attributes['name']} src={imageLink}></img></Link></div>);
         });
         
     }
