@@ -26,14 +26,28 @@ module.exports = function(apiRouter) {
 
   // get all games
   apiRouter.get("/games", function(req, res) {
-    Game.find().exec(function(err, games) {
-      if (err) {
-        res.send(err);
-        console.log(err);
-      } else {
-        res.send(GameSerializer.serialize(games));
-      }
-    });
+    let page = parseInt(req.query.page);
+    if (page) {
+      Game.paginate({}, { page: page, limit: 16 }).then(function(
+        err,
+        games) {
+        if (err) {
+          res.send(err);
+          console.log(err);
+        } else {
+          res.send(GameSerializer.serialize(games.docs));
+        }
+      });
+    } else {
+      Game.find().exec(function(err, games) {
+        if (err) {
+          res.send(err);
+          console.log(err);
+        } else {
+          res.send(GameSerializer.serialize(games));
+        }
+      });
+    }
   });
 
   // get a single game

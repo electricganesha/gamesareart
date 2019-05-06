@@ -19,6 +19,7 @@
     "jsonapi-serializer": "^3.6.4",
     "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.4.3",
+    "mongoose-paginate-v2": "^1.2.1",
     "morgan": "~1.9.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0"

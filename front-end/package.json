@@ -21,6 +21,8 @@
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
+    "react-scroll-wheel-handler": "^1.0.7",
+    "react-transition-group": "^4.0.0",
     "redux": "^4.0.1",
     "resolve-url-loader": "^3.1.0",
     "sass-loader": "^7.1.0",

@@ -3,18 +3,36 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width:854px !important;
-    height:480px  !important;
+    width: 854px !important;
+    height: 480px !important;
     justify-content: flex-start;
 }
 
 .galleryItem {
-    cursor:pointer;
+    cursor: pointer;
     flex: 0 1 200px;
     margin: auto;
 }
 
 .galleryItem img {
-    width:150px;
-    height:100px;
+    width: 150px;
+    height: 100px;
+}
+
+.gallery-enter {
+    opacity: 0;
+}
+
+.gallery-enter-active {
+    opacity: 1;
+    transition: all 500ms;
+}
+
+.gallery-exit {
+    opacity: 1;
+}
+
+.gallery-exit-active {
+    opacity: 0;
+    transition: all 500ms;
 }

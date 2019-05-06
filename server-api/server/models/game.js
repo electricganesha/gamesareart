@@ -1,5 +1,11 @@
 var mongoose = require('mongoose');
+var mongoosePaginate = require('mongoose-paginate-v2');
 const { Schema } = mongoose;
+
+mongoosePaginate.paginate.options = { 
+  lean:  true,
+  limit: 16
+};
 
 var gameSchema = new Schema({
 	  name: { type: String, required:true, index:true, unique:true },
@@ -13,6 +19,8 @@ var gameSchema = new Schema({
     tags: [{ type: Schema.Types.ObjectId, ref: 'Tag' }],
     likes: {type : Number}
 });
+
+gameSchema.plugin(mongoosePaginate);
 
 gameSchema.pre('save', function(next){
   now = new Date();
